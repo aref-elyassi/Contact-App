@@ -1,37 +1,23 @@
 import { useEffect, useState } from "react"
+import HomePage from "./pages/HOmePage"
+import { PersonProvider } from "./context/PersonContext"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import PersonDetails from "./pages/PersonDetails"
 
 function App() {
-  const [person, setPerson] = useState([])
-  const [error, setError] = useState(null)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('http://localhost:4000/data')
-        const data = await res.json();
-        setPerson(data)
-        console.log(data);
-      } catch (err) {
-        console.error('Error fetching data:', err)
-        setError(err.message)
-      }
-    }
-    
-    fetchData(); // Actually calling the function
-  }, [])
 
-  if (error) {
-    return <div>Error: {error}</div>
-  }
 
   return (
     <>
-     
-     {
-      person.map(p=>(
-        <h1>{p.name}</h1>
-      ))
-     }
+      <PersonProvider>
+
+        <Routes>
+        <Route  path='/' element={<HomePage />}/>
+        <Route path="/person/:id"  element={<PersonDetails/>}/>
+        </Routes>
+      </PersonProvider>
+
     </>
   )
 }

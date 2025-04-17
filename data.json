@@ -4,38 +4,47 @@
   [
     {
       "id": 1,
-      "name": "محمد رضایی",
-      "email": "mohammad@example.com",
+      "name": "عارف الیاسی",
+      "email": "aref@example.com",
       "phone": "09123456789",
-      "createdAt": "2023-10-15"
+      "skills":["react","next"]
+
     },
     {
       "id": 2,
-      "name": "فاطمه محمدی",
-      "email": "fatemeh@example.com",
+      "name": "شیوا قاسمی",
+      "email": "shiva@example.com",
       "phone": "09129876543",
-      "createdAt": "2023-10-10"
+      "skills":["nodejs","express","mongodb"]
+     
     },
     {
       "id": 3,
-      "name": "علی کریمی",
-      "email": "ali@example.com",
+      "name": "امین الیاسی",
+      "email": "amin@example.com",
       "phone": "09351234567",
-      "createdAt": "2023-09-28"
+      "skills":["C#"]
     },
     {
       "id": 4,
-      "name": "زهرا احمدی",
-      "email": "zahra@example.com",
+      "name": "سمیرا الیاسی",
+      "email": "samira@example.com",
       "phone": "09107654321",
-      "createdAt": "2023-09-15"
+      "skills":["C"]
     },
     {
       "id": 5,
-      "name": "رضا حسینی",
-      "email": "reza@example.com",
+      "name": "کیوان قاسمی",
+      "email": "keivan@example.com",
       "phone": "09151234567",
-      "createdAt": "2023-08-20"
+      "skills":["python"]
+    },
+    {
+      "id": 6,
+      "name": "متین تولمی",
+      "email": "matin@example.com",
+      "phone": "09151234567",
+      "skills":["java"]
     }
   ]
 }

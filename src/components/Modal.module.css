@@ -1,0 +1,45 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modalDetails {
+    background-color: #dee9ed;
+    width: 50%;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skillsSection {
+    margin-top: 15px;
+}
+
+.skillsSection ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skillsSection li {
+    margin: 5px 0;
+}
+
+button {
+    width: 12rem;
+    height: 2.5rem;
+    background-color: #023043;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
