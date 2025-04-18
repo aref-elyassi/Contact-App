@@ -45,6 +45,24 @@
       "skills": [
         "C#"
       ]
+    },
+    {
+      "id": "1744990723723",
+      "name": "کیوان",
+      "email": "keivan@yahoo.com",
+      "phone": "09123456789",
+      "skills": [
+        "java"
+      ]
+    },
+    {
+      "id": "1744990743035",
+      "name": "شهاب",
+      "email": "shahab@yahoo.com",
+      "phone": "09145649875",
+      "skills": [
+        "c"
+      ]
     }
   ]
 }

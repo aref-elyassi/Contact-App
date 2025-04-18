@@ -21,7 +21,7 @@ const Card = ({ item, deleteHandler }) => {
                     <TbListDetails />
                     </Link>
 
-                    <button onClick={() => deleteHandler(id)}>
+                    <button onClick={() => deleteHandler(id)} className={styles.btn}>
                         <MdDelete/>
                     </button>
                 </div>

@@ -19,10 +19,10 @@ const Modal = ({ isOpen, onClose, person }) => {
         e.preventDefault()
         
         try {
-            // تبدیل رشته مهارت‌ها به آرایه
+           
             const skillsArray = editForm.skills.split(',').map(skill => skill.trim())
             
-            // ایجاد شیء جدید با آرایه مهارت‌ها
+    
             const updatedPerson = {
                 ...person,
                 name: editForm.name,
@@ -43,7 +43,7 @@ const Modal = ({ isOpen, onClose, person }) => {
                 throw new Error('Failed to update person')
             }
 
-            // بستن مودال و رفرش صفحه
+         
             onClose()
             window.location.reload()
 
