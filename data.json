@@ -11,55 +11,40 @@
       ]
     },
     {
-      "id": "199d",
-      "name": "amin elyassi",
-      "email": "shahab@yahoo.com",
-      "phone": "09339775463",
-      "skills": [
-        "nodejs",
-        "reactjs"
-      ]
-    },
-    {
       "id": "0eca",
       "name": "Aref Elyassi",
       "email": "shahab@yahoo.com",
       "phone": "09385319668",
-      "skills": []
+      "skills": [
+        "python",
+        "java"
+      ]
     },
     {
-      "id": "1744985861131",
-      "name": "شیوا",
+      "id": "1745003862591",
+      "name": "Blog",
+      "email": "shahab@yahoo.com",
+      "phone": "093654588472",
+      "skills": [
+        "python",
+        "java"
+      ]
+    },
+    {
+      "id": "1745003892112",
+      "name": "شهاب ارس زاده",
       "email": "shiva@yahoo.com",
-      "phone": "09385319668",
+      "phone": "09123456789",
       "skills": [
         "nodejs",
         "express"
       ]
     },
     {
-      "id": "1744986109657",
-      "name": "سمیرا",
-      "email": "samira@yahoo.com",
-      "phone": "09362223344",
-      "skills": [
-        "C#"
-      ]
-    },
-    {
-      "id": "1744990723723",
-      "name": "کیوان",
-      "email": "keivan@yahoo.com",
-      "phone": "09123456789",
-      "skills": [
-        "java"
-      ]
-    },
-    {
-      "id": "1744990743035",
-      "name": "شهاب",
+      "id": "1745003943998",
+      "name": "Aref Elyassi",
       "email": "shahab@yahoo.com",
-      "phone": "09145649875",
+      "phone": "09151234567",
       "skills": [
         "c"
       ]

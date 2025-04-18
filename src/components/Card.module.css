@@ -22,7 +22,7 @@
 }
 .card button{
    
-    color: #c6c4c4;
+    color: #023043;
     
 }
 .card:hover {
@@ -55,7 +55,7 @@
 }
 .actions a{
     width: 50%;
-    color: #c6c4c4;
+    color: #023043;
 }
 .actions a:hover,.actions .btn:hover {
     color: #000;

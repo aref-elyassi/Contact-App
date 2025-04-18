@@ -36,7 +36,7 @@
 .modalButton{
     width: 12rem;
     height: 2.5rem;
-    background-color: #0d8bc1;
+    background-color: #023043;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -45,18 +45,5 @@
 .modalButton:hover{
     background-color: #000;
     color: #fff;
-    transition: 0.5s all ease-in-out;
-}
-.deleteButton {
-    width: 12rem;
-    height: 2.5rem;
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.deleteButton:hover {
-    background-color: #c82333;
     transition: 0.5s all ease-in-out;
 }

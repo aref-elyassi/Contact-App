@@ -45,6 +45,7 @@ const Modal = ({ isOpen, onClose, person }) => {
 
          
             onClose()
+            
             window.location.reload()
 
         } catch (error) {

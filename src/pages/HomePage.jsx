@@ -3,6 +3,7 @@ import { PersonContext } from '../context/PersonContext'
 import Card from '../components/Card'
 import styles from './HomePage.module.css'
 import AddPerson from '../components/AddPerson'
+import Swal from 'sweetalert2'
 
 const HomePage = () => {
     const { person, setPerson } = useContext(PersonContext)
@@ -10,18 +11,23 @@ const HomePage = () => {
 
     const deleteHandler = async (id) => {
         try {
-            // ارسال درخواست DELETE به سرور با ID در URL
             const response = await fetch(`http://localhost:4000/data/${id}`, {
                 method: 'DELETE'
             })
-
             if (!response.ok) {
                 throw new Error('Failed to delete person')
-            }
-
-            // به‌روزرسانی state در React
+            }  
             const newPerson = person.filter(p => p.id !== id)
             setPerson(newPerson)
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              width: 300,
+              title: "کاربر با موفقیت حذف شد.",
+              showConfirmButton: false,
+              timer: 2500
+            });
+
 
         } catch (error) {
             console.error('Error deleting person:', error)

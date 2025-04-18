@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from './AddPerson.module.css'
+import Swal from 'sweetalert2'
 
 const AddPerson = () => {
     const [form, setForm] = useState({
@@ -20,10 +21,8 @@ const AddPerson = () => {
             alert("لطفا همه مقادیر را وارد کنید")
             return
         }
-        e.preventDefault()
-        
-        const skillsArray = form.skills.split(',').map(skill => skill.trim())
-        
+        e.preventDefault()     
+        const skillsArray = form.skills.split(',').map(skill => skill.trim())  
         const newPerson = {
             name: form.name,
             email: form.email,
@@ -31,7 +30,6 @@ const AddPerson = () => {
             skills: skillsArray,
             id: Date.now().toString()
         }
-
         try {
             const response = await fetch('http://localhost:4000/data', {
                 method: "POST",
@@ -42,15 +40,25 @@ const AddPerson = () => {
             if (!response.ok) {
                 throw new Error('Failed to add person')
             }
-
             setForm({
                 name: "",
                 email: "",
                 phone: "",
                 skills: ""
             })
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                width:300,
+                height:100,
+                title: "عملیات موفقیت آمیز بود",
+                showConfirmButton: false,
+                timer: 2500
+              });
 
-            window.location.reload()
+            setTimeout(()=>{
+                window.location.reload()
+            },3000)
 
         } catch (error) {
             console.error('Error adding person:', error)
