@@ -2,49 +2,100 @@ import React, { useState } from 'react'
 import styles from './AddPerson.module.css'
 
 const AddPerson = () => {
-    const handleChange = () => {
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        skills: ""
+    })
 
+    const changeHandler = (e) => {
+        const name = e.target.name
+        const value = e.target.value
+        setForm(prevForm => ({ ...prevForm, [name]: value }))
+    }
+
+    const addHandler = async (e) => {
+        if(form.name==="" || form.value==="" || form.phone==="" || form.skills===""){
+            alert("لطفا همه مقادیر را وارد کنید")
+            return
+        }
+        e.preventDefault()
+        
+        const skillsArray = form.skills.split(',').map(skill => skill.trim())
+        
+        const newPerson = {
+            name: form.name,
+            email: form.email,
+            phone: form.phone,
+            skills: skillsArray,
+            id: Date.now().toString()
+        }
+
+        try {
+            const response = await fetch('http://localhost:4000/data', {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newPerson)
+            })
+
+            if (!response.ok) {
+                throw new Error('Failed to add person')
+            }
+
+            setForm({
+                name: "",
+                email: "",
+                phone: "",
+                skills: ""
+            })
+
+            window.location.reload()
+
+        } catch (error) {
+            console.error('Error adding person:', error)
+            alert('خطا در افزودن شخص جدید')
+        }
     }
 
     return (
         <div className={styles.container}>
             <h1>افزودن شخص جدید</h1>
-            <div className={styles.inputs}>
-
+            <form  className={styles.inputs}>
                 <input
                     type="text"
                     name="name"
-
-                    onChange={handleChange}
+                    value={form.name}
+                    onChange={changeHandler}
                     placeholder="نام"
                     required
                 />
                 <input
                     type="email"
                     name="email"
-
-                    onChange={handleChange}
+                    value={form.email}
+                    onChange={changeHandler}
                     placeholder="ایمیل"
                     required
                 />
                 <input
                     type="tel"
                     name="phone"
-
-                    onChange={handleChange}
+                    value={form.phone}
+                    onChange={changeHandler}
                     placeholder="تلفن"
                     required
                 />
                 <input
                     type="text"
                     name="skills"
-
-                    onChange={handleChange}
+                    value={form.skills}
+                    onChange={changeHandler}
                     placeholder="مهارت ها (با کاما جدا کنید)"
                     required
                 />
-            </div>
-                <button type="submit">افزودن</button>
+            </form>
+                <button onClick={addHandler}>افزودن</button>
         </div>
     )
 }

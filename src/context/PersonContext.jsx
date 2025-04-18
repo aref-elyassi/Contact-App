@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
-const PersonContext = createContext()
+export const PersonContext = createContext()
 const PersonProvider = ({ children }) => {
   const [person, setPerson] = useState([])
   useEffect(() => {
@@ -18,14 +18,8 @@ const PersonProvider = ({ children }) => {
   }, [])
   return (
 
-    <PersonContext.Provider value={{person}}>{children}</PersonContext.Provider>
+    <PersonContext.Provider value={{person,setPerson}}>{children}</PersonContext.Provider>
   )
 }
-const usePerson = () => {
-  const context = useContext(PersonContext)
-  if (!context) {
-    throw new Error('usePerson must be used within a PersonProvider')
-  }
-  return context
-}
-export { PersonProvider, usePerson }
+
+export { PersonProvider }

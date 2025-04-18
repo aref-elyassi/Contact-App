@@ -11,60 +11,39 @@
       ]
     },
     {
-      "id": "2",
-      "name": "شیوا قاسمی",
-      "email": "shiva@example.com",
-      "phone": "09129876543",
-      "skills": [
-        "nodejs",
-        "express",
-        "mongodb"
-      ]
-    },
-    {
-      "id": "3",
-      "name": "امین الیاسی",
-      "email": "amin@example.com",
-      "phone": "09351234567",
-      "skills": [
-        "C#"
-      ]
-    },
-    {
-      "id": "4",
-      "name": "سمیرا الیاسی",
-      "email": "samira@example.com",
-      "phone": "09107654321",
-      "skills": [
-        "C"
-      ]
-    },
-    {
-      "id": "5",
-      "name": "کیوان قاسمی",
-      "email": "keivan@example.com",
-      "phone": "09151234567",
-      "skills": [
-        "python"
-      ]
-    },
-    {
-      "id": "6",
-      "name": "متین تولمی",
-      "email": "matin@example.com",
-      "phone": "09151234567",
-      "skills": [
-        "java"
-      ]
-    },
-    {
       "id": "199d",
-      "name": "شهاب ارس زاده",
+      "name": "amin elyassi",
       "email": "shahab@yahoo.com",
       "phone": "09339775463",
       "skills": [
         "nodejs",
         "reactjs"
+      ]
+    },
+    {
+      "id": "0eca",
+      "name": "Aref Elyassi",
+      "email": "shahab@yahoo.com",
+      "phone": "09385319668",
+      "skills": []
+    },
+    {
+      "id": "1744985861131",
+      "name": "شیوا",
+      "email": "shiva@yahoo.com",
+      "phone": "09385319668",
+      "skills": [
+        "nodejs",
+        "express"
+      ]
+    },
+    {
+      "id": "1744986109657",
+      "name": "سمیرا",
+      "email": "samira@yahoo.com",
+      "phone": "09362223344",
+      "skills": [
+        "C#"
       ]
     }
   ]

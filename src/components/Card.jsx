@@ -1,13 +1,14 @@
-import React, { use, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Card.module.css'
-import { TbListDetails } from "react-icons/tb";
-import { CiEdit } from "react-icons/ci";
 import { Link } from 'react-router-dom';
-const Card = ({ item }) => {
+import { MdDelete } from "react-icons/md";
+import { TbListDetails } from 'react-icons/tb';
 
- 
+const Card = ({ item, deleteHandler }) => {
     const { id } = item
-  
+
+   
+
     return (
         <div className={styles.container}>
             <div className={styles.card}>
@@ -17,15 +18,13 @@ const Card = ({ item }) => {
 
                 <div className={styles.actions}>
                     <Link to={`/person/${id}`}>
-                        <p>مشاهده جزئیات</p>
+                    <TbListDetails />
                     </Link>
 
-                    <button>
-                        <CiEdit />
+                    <button onClick={() => deleteHandler(id)}>
+                        <MdDelete/>
                     </button>
-
                 </div>
-
             </div>
         </div>
     )

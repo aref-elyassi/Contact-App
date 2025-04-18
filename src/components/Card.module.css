@@ -26,8 +26,7 @@
 }
 
 .actions button {
-    border: none;
-    background-color: transparent;
-    height: 30px;
-    width: 60px;
+  font-size: 1em;
+    height: 20px;
+    width: 30px;
 }
