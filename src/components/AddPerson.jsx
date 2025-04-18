@@ -56,10 +56,7 @@ const AddPerson = () => {
                 timer: 2500
               });
 
-            setTimeout(()=>{
-                window.location.reload()
-            },3000)
-
+           
         } catch (error) {
             console.error('Error adding person:', error)
             alert('خطا در افزودن شخص جدید')

@@ -15,7 +15,7 @@ const PersonProvider = ({ children }) => {
       }
     }
     fetchPerson()
-  }, [])
+  }, [person])
   return (
 
     <PersonContext.Provider value={{person,setPerson}}>{children}</PersonContext.Provider>

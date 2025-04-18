@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import HomePage from "./pages/HOmePage"
+import HomePage from "./pages/HomePage"
 import { PersonProvider } from "./context/PersonContext"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import PersonDetails from "./pages/PersonDetails"
