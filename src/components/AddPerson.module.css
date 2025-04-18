@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 3rem;
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius:10px ;
+}
+.inputs{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.inputs input{
+    width: 12rem;
+    height: 2rem;
+    text-align: center;
+}
+.container button{
+    margin-top: 30px;
+}
