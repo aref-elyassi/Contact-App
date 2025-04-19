@@ -11,16 +11,6 @@
       ]
     },
     {
-      "id": "1745003862591",
-      "name": "Blog",
-      "email": "shahab@yahoo.com",
-      "phone": "09365458847",
-      "skills": [
-        "python",
-        "java"
-      ]
-    },
-    {
       "id": "1745003943998",
       "name": "Aref Elyassi",
       "email": "shahab@yahoo.com",
@@ -75,26 +65,6 @@
       "phone": "09385319668",
       "skills": [
         "python"
-      ]
-    },
-    {
-      "id": "1745007073142",
-      "name": "شخص جدید",
-      "email": "samira@yahoo.com",
-      "phone": "09339775463",
-      "skills": [
-        "nodejs",
-        "express"
-      ]
-    },
-    {
-      "id": "1745007106141",
-      "name": "Blog",
-      "email": "keivan@yahoo.com",
-      "phone": "09362223344",
-      "skills": [
-        "nodejs",
-        "express"
       ]
     }
   ]

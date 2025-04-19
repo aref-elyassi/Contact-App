@@ -1,16 +1,46 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { PersonContext } from '../context/PersonContext'
 import Card from '../components/Card'
 import styles from './HomePage.module.css'
 import AddPerson from '../components/AddPerson'
 import Swal from 'sweetalert2'
+import SearchPerson from '../components/SearchPerson'
 
 const HomePage = () => {
   const { person, setPerson } = useContext(PersonContext)
-  console.log(person);
+  const [search, setSearch] = useState("")
+  const [displayed, setDisplayed] = useState([])
+
+  useEffect(() => {
+       if (search.trim() === '') {
+      setDisplayed(person);
+    } else {
+      const filtered = person.filter(p =>
+        p.name.toLowerCase().includes(search.toLowerCase()) ||
+        p.email.toLowerCase().includes(search.toLowerCase()) ||
+        p.phone.includes(search)
+      );
+      setDisplayed(filtered);
+    }
+  }, [search, person]);
 
   const deleteHandler = async (id) => {
+
+
     try {
+      const result = await Swal.fire({
+        title: 'آیا مطمئن هستید؟',
+        text: "همه داده‌ها حذف خواهند شد!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'بله، حذف کن!',
+        cancelButtonText: 'انصراف'
+      });
+
+      if (!result.isConfirmed) return;
+
       const response = await fetch(`http://localhost:4000/data/${id}`, {
         method: 'DELETE'
       })
@@ -19,22 +49,33 @@ const HomePage = () => {
       }
       const newPerson = person.filter(p => p.id !== id)
       setPerson(newPerson)
+      
       Swal.fire({
         position: "top-end",
         icon: "success",
         width: 300,
-        title: "کاربر با موفقیت حذف شد.",
+        title: " داده با موفقیت حذف شدند.",
         showConfirmButton: false,
         timer: 2500
       });
 
-
     } catch (error) {
-      console.error('Error deleting person:', error)
-      alert('خطا در حذف شخص')
+      console.error('Error deleting all data:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'خطا',
+        text: `حذف داده‌ها با مشکل مواجه شد: ${error.message}`,
+        confirmButtonText: 'متوجه شدم'
+      });
     }
+
+
+
+
+
+
   }
-  
+
   const deleteAllHandler = async () => {
     try {
       const result = await Swal.fire({
@@ -47,14 +88,20 @@ const HomePage = () => {
         confirmButtonText: 'بله، حذف کن!',
         cancelButtonText: 'انصراف'
       });
-  
+
       if (!result.isConfirmed) return;
-  
-       await fetch('http://localhost:4000/data', {
+
+      const response = await fetch(`http://localhost:4000/data`, {
         method: 'DELETE'
-      });
-      setPerson([]) 
-      window.location.reload()
+      })
+      if (!response.ok) {
+        throw new Error('Failed to delete person')
+      }
+      let newArray = person.splice(0, person.length)
+      console.log(newArray);
+      // پاک کردن state محلی
+      //setPerson(newArray);
+
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -63,24 +110,25 @@ const HomePage = () => {
         showConfirmButton: false,
         timer: 2500
       });
-  
+
     } catch (error) {
-      console.error('Error deleting data:', error);
+      console.error('Error deleting all data:', error);
       Swal.fire({
         icon: 'error',
         title: 'خطا',
-        text: 'حذف داده‌ها با مشکل مواجه شد',
+        text: `حذف داده‌ها با مشکل مواجه شد: ${error.message}`,
         confirmButtonText: 'متوجه شدم'
       });
     }
-  }
+  };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} >
       <AddPerson />
+      <SearchPerson search={search} setSearch={setSearch} />
       <h1>لیست اشخاص</h1>
       <div className={styles.personList}>
-        {person.map((item) => (
+        {displayed.map((item) => (
           <Card key={item.id} item={item} deleteHandler={deleteHandler} />
         ))}
       </div>
