@@ -4,11 +4,11 @@ import styles from './SearchPerson.module.css'
 const SearchPerson = ({ search, setSearch }) => {
   return (
     <div className={styles.searchContainer}>
+      <span>جستجو بر اساس نام یا ایمیل یا شماره تلفن</span>
       <input
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder="جستجو بر اساس نام، ایمیل یا تلفن..."
         className={styles.searchInput}
       />
       

@@ -12,7 +12,7 @@ const HomePage = () => {
   const [displayed, setDisplayed] = useState([])
 
   useEffect(() => {
-       if (search.trim() === '') {
+    if (search.trim() === '') {
       setDisplayed(person);
     } else {
       const filtered = person.filter(p =>
@@ -49,7 +49,7 @@ const HomePage = () => {
       }
       const newPerson = person.filter(p => p.id !== id)
       setPerson(newPerson)
-      
+
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -68,12 +68,6 @@ const HomePage = () => {
         confirmButtonText: 'متوجه شدم'
       });
     }
-
-
-
-
-
-
   }
 
   const deleteAllHandler = async () => {
@@ -86,46 +80,47 @@ const HomePage = () => {
         confirmButtonColor: '#d33',
         cancelButtonColor: '#3085d6',
         confirmButtonText: 'بله، حذف کن!',
-        cancelButtonText: 'انصراف'
+        cancelButtonText: 'انصراف',
       });
-
+  
       if (!result.isConfirmed) return;
-
+  
       const response = await fetch(`http://localhost:4000/data`, {
-        method: 'DELETE'
-      })
-      if (!response.ok) {
-        throw new Error('Failed to delete person')
-      }
-      let newArray = person.splice(0, person.length)
-      console.log(newArray);
-      // پاک کردن state محلی
-      //setPerson(newArray);
-
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        width: 300,
-        title: "همه داده‌ها با موفقیت حذف شدند.",
-        showConfirmButton: false,
-        timer: 2500
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
       });
-
+  
+      if (!response.ok) {
+        throw new Error('Failed to delete all data');
+      }
+  
+      setPerson([]); // حالت را به آرایه خالی تنظیم کنید.
+  
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        width: 300,
+        title: 'همه داده‌ها با موفقیت حذف شدند.',
+        showConfirmButton: false,
+        timer: 2500,
+      });
     } catch (error) {
       console.error('Error deleting all data:', error);
       Swal.fire({
         icon: 'error',
         title: 'خطا',
         text: `حذف داده‌ها با مشکل مواجه شد: ${error.message}`,
-        confirmButtonText: 'متوجه شدم'
+        confirmButtonText: 'متوجه شدم',
       });
     }
   };
 
   return (
     <div className={styles.container} >
+      <div className={styles.header}>
       <AddPerson />
       <SearchPerson search={search} setSearch={setSearch} />
+      </div>
       <h1>لیست اشخاص</h1>
       <div className={styles.personList}>
         {displayed.map((item) => (
